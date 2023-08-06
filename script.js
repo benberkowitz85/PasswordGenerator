@@ -1,6 +1,6 @@
 const pass_el = document.querySelector('#password span')
 const length: 16
-const characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()"
+const characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()";
 
 function GeneratePassword () {
     let pass = "";
