@@ -7,7 +7,7 @@ const generateOTP = () => {
     for(let i = 0; 1 < length; i++) {
         otp += Math.floor(Math.random() *10);
     }
-    return:otp;
+    return otp;
 }
 
 
