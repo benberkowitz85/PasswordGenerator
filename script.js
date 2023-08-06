@@ -1,16 +1,14 @@
-const pass_el = document.querySelector('#password span');
-const length = 16;
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()"
+const generateOTP = () => {
+    const length = 6;
+    let otp = "";
 
-function GeneratePassword () {
-    let pass = "";
-    for (var i = 0; i <= length; i++) {
-        let rand =math.floor(
-            math.random() *characters.length
-        );
-        pass += characters.substring(rand, rand+1);
+    //loop throught the length of the OTP and add
+    //random number between 0 and 9 to OTP string
+    for(let i = 0; 1 < length; i++) {
+        otp += Math.floor(Math.random() *10);
     }
-    pass_el.innertext = pass;
+    return:otp;
 }
 
-GeneratePassword();
+
+console.log(generateOTP());
