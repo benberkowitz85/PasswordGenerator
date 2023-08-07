@@ -40,3 +40,16 @@ input[type=text], select, textarea {
     background-color: #f2f2f29c;
     padding: 35px;
   }
+
+  .password-display {
+    background-color: whitesmoke;
+    color: black;
+    padding: 2rem;
+    Border: 1px Solid black;
+    height: 2rem;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+  }
