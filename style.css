@@ -41,15 +41,17 @@ input[type=text], select, textarea {
     padding: 35px;
   }
 
-  .password-display {
+  section-2 {
     background-color: whitesmoke;
     color: black;
-    padding: 2rem;
-    Border: 1px Solid black;
-    height: 2rem;
+    padding: 200px;
+    Border: 10px Solid black;
+    height: 200px;
     width: 400px;
-    display: flex;
+    grid-column: auto auto;
+    display:grid;
     justify-content: center;
     align-items: center;
+    grid-column: auto auto;
     word-break: break-all;
   }
