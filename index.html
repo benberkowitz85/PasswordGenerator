@@ -1,27 +1,35 @@
 <!DOCTYPE html>
- <html lang="en-US"></html>
- <head>
-    <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
- 
-    <form action="action_page.php">
-    <section-2>
-      <label for="fname">Password Generator</label>
-      <input type="text" id="Pword" name="Password" placeholder="Password..">
-      <label for="IncludeUppercase">Include Uppercase Letters</label>
-      <style text
-      <input type="checkbox" id="IncludeUppercase">
-      <label for="IncludeLowercase">Include Lowercase Letters</label>
-      <input type="checkbox" id="IncludeLowercase">
-      <label for="IncludeNumbers">Include Numbers</label>
-      <input type="checkbox" id="IncludeNumbers">
-      <label for="IncludeSpecialCharacters">Include Special Characters</label>
-      <input type="checkbox" id="IncludeSpecialCharacters">
-      <input type="submit" value="Submit">
-    </section-2>
-    </form>
+<html lang="En">
+<head>
+  <meta charset="UTF-8">
+  <Meta http-equiv="X-UA COmpatible">
+  <meta name="Viewport" content="width=device-width, initial scale=1.0">
+  <title>Random Password Generator   | JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section-1>
+<div>
+<h1>Random Password Generator</h1>
+<br> 
+</br>
+<h5>Desired Password Length: Range of 1 - 128</h5>
+<input type="text" placeholder="Characters..." id="Characters">
+<button id="button" onclick="GenerateCharactes()">Character Count</button>
+<br>
+</br>
+<h5>Include Numbers:             <input type="checkbox" style="text-align: start;"></h5>
+<h5>Include Uppercase Letters:   <input type="checkbox" style="text-align: start;"></h5>
+<h5>Include Lowercase Letters:   <input type="checkbox" style="text-align: start;"></h5>
+<h5>Include Special Characters:  <input type="checkbox" style="text-align: start;"></h5>
+<br>
+<h4>Generate Your Password</h4>
+<input type="text" placeholder="Password..." id="Password">
+<button  id="button" onclick="GetPassword()">Generate</button>
+</br> 
+</section-1>
+</div>
+<script> src="scrpit.js"</script>  
+</body>
 
-  <script src="script.js"></script>
 </html>
