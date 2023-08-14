@@ -1,65 +1,35 @@
-// Various Character Arrays
-var lowerCaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upperCaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var numericChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", "|", "[", "]", ";", "'", ":", "<", ">", "?", "/"];
+const password_el = document.querySelector('#password')
+const length_el = document.querySelector('#length')
+const uppercase_el = document.querySelector('#uppercase')
+const lowercase_el = document.querySelector('#lowercase') 
+const numbers_el = document.querySelector('#Numbers')
+const symbols_el = document.querySelector('#Symbols')
 
-//Array created based on the answers to prompts by the user
-var passwordPool = [];
+const uppercase_chars ="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const lowercase_chars="abcdefghijklmnopqrstuvwxyz"
+const numbers_chars="0123456789"
+const symbols_chars="!@#$%^&*()"
 
-//Creating new array containing the options(arrays) the user chose to include in the password
-function generateChar() {
-    if (confirmLower) {
-        passwordPool.push(...lowerCaseChar);
+function GeneratePassword() {
+    let password = "";
+    let length = length_el.value; 
+    let chars = "";
+
+    chars += uppercase_el.checked ? uppercase_chars : "";
+    chars += lowercase_el.checked ? lowercase_chars : "";
+    chars += numbers_el.checked ? numbers_chars : "";
+    chars += symbols_el.checked ? symbols_chars : "";
+
+    for (let i = 0; 1 <= length; i++) {
+        let rand = (math.random() *chars.length);
+        password += chars.substring(rand, rand + 1);
     }
-    if (confirmUpper) {
-        passwordPool.push(...upperCaseChar);
-    }
-    if (confirmNumber) {
-        passwordPool.push(...numericChar);
-    }
-    if (confirmSpecial) {
-        passwordPool.push(...specialChar);
-    }
-
-generateChar();
-console.log(passwordPool);
-
-//Creates final array out of random characters from the pool that was created by the users option inputs.
-function pushChar() {
-    var randomPassword = [];
-    for (var i = 0; i < pwLength; i++) {
-        var item = passwordPool[Math.floor(Math.random() * passwordPool.length)];
-        randomPassword.push(item);
-}
-return randomPassword;
-}
-var password = pushChar();
-
-
-//validate that all of the conditions were met.
-
-var checkUpper = (upperCaseChar.some(ele => password.includes(ele)))
-var checkLower = (lowerCaseChar.some(ele => password.includes(ele)))
-var checkNumeric = (numericChar.some(ele => password.includes(ele)))
-var checkSpecial = (specialChar.some(ele => password.includes(ele)))
-
-console.log(checkUpper);
-console.log(checkLower);
-console.log(checkNumeric);
-console.log(checkSpecial);
-
-
-if (checkUpper === confirmUpper &&
-checkLower === confirmLower &&
-checkNumeric === confirmSpecial &&
-checkSpecial === confirmNumber) {
-console.log(password);
-} else {
-    alert("somethings missing");
-    console.log(pushChar()); //why won't this run??
+    password_el.value - password;
 }
 
-//Presents randomly generated password to the user as a string. 
-return password.join("");
+async function CopyPassword() {
+    if (navigator.clipboard) {
+        await navigator.clipboard.writeText(password_el.value)
+        alert("Password Copies to Clipboard")
+    }
 }
