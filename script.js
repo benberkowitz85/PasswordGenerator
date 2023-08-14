@@ -1,35 +1,59 @@
-const password_el = document.querySelector('#password')
-const length_el = document.querySelector('#length')
-const uppercase_el = document.querySelector('#uppercase')
-const lowercase_el = document.querySelector('#lowercase') 
-const numbers_el = document.querySelector('#Numbers')
-const symbols_el = document.querySelector('#Symbols')
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-const uppercase_chars ="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const lowercase_chars="abcdefghijklmnopqrstuvwxyz"
-const numbers_chars="0123456789"
-const symbols_chars="!@#$%^&*()"
+// A function to get the password
+    function getPassword() {
+    
+// Password variables for allowable passwords characters
+    var uppercaseABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var lowercaseABC = "abcdefghijklmnopqrstuvwxyz"
+    var numeric = "0123456789"
+    var symbols = "!@#$%^&*()-=+<>?/|':[]{}"
+    var multiSelect = "";
+    var randomKey = "";
 
-function GeneratePassword() {
-    let password = "";
-    let length = length_el.value; 
-    let chars = "";
+//Initial prompt to allow end-user to select a password length between 8 to 128 characters long.
+    var keyLength = prompt(
+        "Your password must be between 8 to 128 characters long, enter your desired number."
+    );
+    
+// Return to window if the selected number is out of range for password criteria
+    if (keyLength < 8 || keyLength > 128 || isNaN(keyLength)) {
+        alert("Your password does not meet the critia. Password must be between 8 and 128 characters in length. Enter another number.");        
+        return;
 
-    chars += uppercase_el.checked ? uppercase_chars : "";
-    chars += lowercase_el.checked ? lowercase_chars : "";
-    chars += numbers_el.checked ? numbers_chars : "";
-    chars += symbols_el.checked ? symbols_chars : "";
-
-    for (let i = 0; 1 <= length; i++) {
-        let rand = (math.random() *chars.length);
-        password += chars.substring(rand, rand + 1);
+// Variable Prompts. Once the end user successfully enters a valid numberor value, this prompt will notify them that their password will contain the following characters when the random key is finally generated
+    } else {
+    var upperAlpha = confirm("Your password will contain a variety of uppercase letters, click ok to continue");
+    var lowerAlpha = confirm("Your password will contain a variety of lowercase letters, click ok to continue");
+    var numericOptions = confirm("Your password will contain numbers, click ok to continue");
+    var specialSymbols = confirm("Your password will contain a variety of symbols, click ok to continue");
     }
-    password_el.value - password;
+
+    if (upperAlpha) {multiSelect += uppercaseABC;}
+    if (lowerAlpha) {multiSelect += lowercaseABC;}
+    if (numericOptions) {multiSelect += numeric;}
+    if (specialSymbols) {multiSelect += symbols;}
+
+// For loop to repeat if criteria is not met and will end once password is generated. 
+    for (i = 0; i < keyLength; i++) {
+
+// Final random password has generated
+        randomKey += multiSelect[Math.floor(Math.random() * multiSelect.length)]
+    }
+    return(randomKey);
 }
 
-async function CopyPassword() {
-    if (navigator.clipboard) {
-        await navigator.clipboard.writeText(password_el.value)
-        alert("Password Copies to Clipboard")
+// Write password to the #password input. The text box area where the newly generated password will appear.
+    var passwordText = document.querySelector("#password");
+    function writePassword(randomKey) {
+    if (password.length === 0) {
+        return;
     }
+    passwordText.value = randomKey;
 }
+
+// Add event listener to generate button. This is a Call To Action (CTA button)
+    generateBtn.addEventListener("click", function () { writePassword(getPassword()) });
+
+    
