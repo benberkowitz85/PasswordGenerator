@@ -53,6 +53,8 @@ alert("Congrats! Your unique password has been created! Be sure to highlight the
     passwordText.value = randomKey;
 }
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", function () { writePassword(getPassword()) });
     
 
       
