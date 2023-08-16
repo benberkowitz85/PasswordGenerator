@@ -12,28 +12,31 @@ var generateBtn = document.querySelector("#generate");
     var multiSelect = "";
     var randomKey = "";
 
-//Initial prompt to allow end-user to select a password length between 8 to 128 characters long.
+//First prompt to allow end-user to select a password length between 8 to 128 characters long.
     var keyLength = prompt(
-        "Your password must be between 8 to 128 characters long, enter your desired number."
+        "The Password must be between 8 to 128 characters long."
     );
     
-// Return to window if the selected number is out of range for password criteria
+// If the selected number is out of range for password criteria
     if (keyLength < 8 || keyLength > 128 || isNaN(keyLength)) {
-        alert("Your password does not meet the critia. Password must be between 8 and 128 characters in length. Enter another number.");        
+        alert("The password does not meet the critia. Enter a number from 8 - 128.");        
         return;
 
 // Variable Prompts. Once the end user successfully enters a valid numberor value, this prompt will notify them that their password will contain the following characters when the random key is finally generated
     } else {
-    var upperAlpha = confirm("Your password will contain a variety of uppercase letters, click ok to continue");
-    var lowerAlpha = confirm("Your password will contain a variety of lowercase letters, click ok to continue");
-    var numericOptions = confirm("Your password will contain numbers, click ok to continue");
-    var specialSymbols = confirm("Your password will contain a variety of symbols, click ok to continue");
+    var upperAlpha = confirm("Your password will contain uppercase letters, please click ok to continue");
+    var lowerAlpha = confirm("Your password will contain lowercase letters, please click ok to continue");
+    var numericOptions = confirm("Your password will contain numbers, please click ok to continue");
+    var specialSymbols = confirm("Your password will contain symbols, please click ok to continue");
     }
 
     if (upperAlpha) {multiSelect += uppercaseABC;}
     if (lowerAlpha) {multiSelect += lowercaseABC;}
     if (numericOptions) {multiSelect += numeric;}
-    if (specialSymbols) {multiSelect += symbols;}
+    if (specialSymbols) {multiSelect += symbols;} 
+
+// This prompt will congratulate user on making a password, reminding them highlight and copy their password
+alert("Congrats! Your unique password has been created! Be sure to highlight the password and right click to copy!")
 
 // For loop to repeat if criteria is not met and will end once password is generated. 
     for (i = 0; i < keyLength; i++) {
@@ -55,5 +58,8 @@ var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button. This is a Call To Action (CTA button)
     generateBtn.addEventListener("click", function () { writePassword(getPassword()) });
+    
+
+      
 
     
